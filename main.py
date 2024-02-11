@@ -19,7 +19,7 @@ correctGuesses = []
 score = 0
 while score <=50:
     answer = (screen.textinput(title= f"{score}/50 states guessed", prompt= "Guess a state!")).title()
-    if answer in stateList:
+    if answer in stateList and answer not in correctGuesses:
         score += 1        
         state = data[data.state == answer]
         x = state['x'].iloc[0]
