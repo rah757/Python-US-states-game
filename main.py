@@ -21,9 +21,7 @@ score = 0
 while len(correctGuesses) <=50:
     answer = (screen.textinput(title= f"{score}/50 states guessed", prompt= "Guess a state!")).title()
     if answer == "Exit":
-        for state in stateList:
-            if state not in correctGuesses:
-                unGuessed.append(state)
+        unGuessed = [state for state in stateList if state not in correctGuesses]
         unGuessed_series = pandas.Series(unGuessed)
         unGuessed_series.to_csv('unguessed_state_names.csv')
     if answer in stateList and answer not in correctGuesses:
